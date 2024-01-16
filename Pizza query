@@ -1,0 +1,5 @@
+--What is the shortest order time and what was the pizza name?--
+SELECT DISTINCT MIN(order_time), MIN(pizza_name) FROM `first-project-411218.411.Pizza` 
+
+--One of the customers wants a refund and says the order was made in 2015 during November and December. Please pull up all ids in that time.--
+SELECT order_date, order_id FROM `first-project-411218.411.Pizza` WHERE order_date BETWEEN '11/1/2015' AND '12/31/2015'

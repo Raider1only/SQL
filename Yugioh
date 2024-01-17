@@ -1,1 +1,21 @@
+--Hello I created this table based on my love of Yugioh and wanted to show case my sql skills in making queries from it.--
 
+CREATE TABLE Yugioh(
+Character TEXT,
+Series_Debut TEXT,
+Series_Number INT
+);
+
+INSERT INTO Yugioh (Character, Series_Debut, Series_Number ) VALUES 
+('Yugi','Yugioh', 1),('Jaden','Yugioh GX', 2),('Yusei','Yugioh 5ds', 3),('Yuma','Yugioh Zexal',4),('Yuuya','Yugioh Arc-V',5),('Yusaku','Yugioh Vrains', 6),
+('Kaiba','Yugioh',1),('Zane','Yugioh GX',2),('Jack','Yugioh 5ds',3),('Kite','Yugioh Zexal',4),('Declan','Yugioh Arc-V',5),('Revolver','Yugioh Vrains',6),
+('Marik','Yugioh',1),('Darkness','Yugioh GX',2),('ZONE','Yugioh 5ds',3),('Don Thousand','Yugioh Zexal',4),('Zarc','Yugioh Arc-V',5),('AI','Yugioh Vrains',6)
+
+ALTER TABLE Yugioh ADD Ratings INT;
+
+INSERT INTO Yugioh (Ratings ) VALUES 
+(10),(8),(8),(6),(4),(9),
+(10),(5),(7),(7),(5),(8),
+(10),(2),(4),(5),(4),(6)
+
+Select * FROM Yugioh

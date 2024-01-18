@@ -1,4 +1,10 @@
---Hello I created this table based on my love of Yugioh and wanted to show case my sql skills in making queries from it.--
+--Hello I created this database and table based on my love of Yugioh and wanted to show case my sql skills in making queries from it.--
+
+--Here I start with a basic place for the information to be stored in MYSQL--
+
+CREATE DATABASE Hobby;
+
+--Here is where I created the perimeters by creating columns and rows by also giving them their appropriate values--
 
 CREATE TABLE Yugioh(
 Character TEXT,
@@ -6,16 +12,74 @@ Series_Debut TEXT,
 Series_Number INT
 );
 
+--After that I decided to put in the information of at least three characters from each show as well as what show each is and what number each appeared as--
+
 INSERT INTO Yugioh (Character, Series_Debut, Series_Number ) VALUES 
-('Yugi','Yugioh', 1),('Jaden','Yugioh GX', 2),('Yusei','Yugioh 5ds', 3),('Yuma','Yugioh Zexal',4),('Yuuya','Yugioh Arc-V',5),('Yusaku','Yugioh Vrains', 6),
+('Yugi','Yugioh', 1,),('Jaden','Yugioh GX', 2),('Yusei','Yugioh 5ds', 3),('Yuma','Yugioh Zexal',4),('Yuuya','Yugioh Arc-V',5),('Yusaku','Yugioh Vrains', 6),
 ('Kaiba','Yugioh',1),('Zane','Yugioh GX',2),('Jack','Yugioh 5ds',3),('Kite','Yugioh Zexal',4),('Declan','Yugioh Arc-V',5),('Revolver','Yugioh Vrains',6),
 ('Marik','Yugioh',1),('Darkness','Yugioh GX',2),('ZONE','Yugioh 5ds',3),('Don Thousand','Yugioh Zexal',4),('Zarc','Yugioh Arc-V',5),('AI','Yugioh Vrains',6)
 
+--I decided I wanted to add a new column based on my likeability for each character so I made a personal rating into the table.--
+
 ALTER TABLE Yugioh ADD Ratings INT;
 
-INSERT INTO Yugioh (Ratings ) VALUES 
-(10),(8),(8),(6),(4),(9),
-(10),(5),(7),(7),(5),(8),
-(10),(2),(4),(5),(4),(6)
+--Then I put in the values of each of their ratings.--
 
+UPDATE Yugioh
+SET Rating = 10
+WHERE Charcter = 'Yugi';
+UPDATE Yugioh
+SET Rating = 8
+WHERE Charcter = 'Jaden';
+UPDATE Yugioh
+SET Rating = 7
+WHERE Charcter = 'Yusei';
+UPDATE Yugioh
+SET Rating = 4
+WHERE Charcter = 'Yuma';
+UPDATE Yugioh
+SET Rating = 3
+WHERE Charcter = 'Yuuya';
+UPDATE Yugioh
+SET Rating = 7
+WHERE Charcter = 'Yusaku';
+UPDATE Yugioh
+SET Rating = 9
+WHERE Charcter = 'Kaiba';
+UPDATE Yugioh
+SET Rating = 5
+WHERE Charcter = 'Zane';
+UPDATE Yugioh
+SET Rating = 8
+WHERE Charcter = 'Jack';
+UPDATE Yugioh
+SET Rating = 7
+WHERE Charcter = 'Kite';
+UPDATE Yugioh
+SET Rating = 5
+WHERE Charcter = 'Declan';
+UPDATE Yugioh
+SET Rating = 8
+WHERE Charcter = 'Revolver';
+UPDATE Yugioh
+SET Rating = 10
+WHERE Charcter = 'Marik';
+UPDATE Yugioh
+SET Rating = 2
+WHERE Charcter = 'Darkness';
+UPDATE Yugioh
+SET Rating = 4
+WHERE Charcter = 'ZONE';
+UPDATE Yugioh
+SET Rating = 5
+WHERE Charcter = 'Don Thousand';
+UPDATE Yugioh
+SET Rating = 6
+WHERE Charcter = 'Zarc';
+UPDATE Yugioh
+SET Rating = 6
+WHERE Charcter = 'AI';
+
+
+--Now after all the changes the table now has a list of every character, the series they originated, the order of the appearence, and finally my personal ratings of each character.
 Select * FROM Yugioh

@@ -5,4 +5,4 @@
 SELECT DISTINCT Age_Group,Metric FROM `first-project-411218.411.Marriage stats` WHERE Metric ="Divorced" ORDER BY METRIC
 
 --What years had the most marriages? Which age group had the most marriages?--
-SELECT DISTINCT Year, Age_Group, Metric FROM `first-project-411218.411.Marriage stats` WHERE Metric = "Married" LIMIT 50
+SELECT DISTINCT Year, Age_Group, Metric FROM `first-project-411218.411.Marriage stats` WHERE Metric = "Married" 

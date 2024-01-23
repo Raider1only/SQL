@@ -10,3 +10,7 @@ SELECT DISTINCT Year, Age_Group, Metric FROM `first-project-411218.411.Marriage 
 --What is the least estimated population for married males from 55 to 64 years old?--
 SELECT MIN(Estimated_Population) FROM `first-project-411218.411.Marriage stats` 
 WHERE Metric = 'Married' AND Gender = 'Male'
+
+--What year has the most divorces?--
+SELECT MAX(Year) FROM `first-project-411218.411.Marriage stats` 
+WHERE Metric = 'Divorced'

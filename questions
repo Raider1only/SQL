@@ -1,8 +1,0 @@
---I downloaded United States Marriage Statistics from Kaggle to answer some questions on the data--
- 
-
---What age group has the most divorces?
-SELECT DISTINCT Age_Group,Metric FROM `first-project-411218.411.Marriage stats` WHERE Metric ="Divorced" ORDER BY METRIC
-
---What years had the most marriages? Which age group had the most marriages?--
-SELECT DISTINCT Year, Age_Group, Metric FROM `first-project-411218.411.Marriage stats` WHERE Metric = "Married" 

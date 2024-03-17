@@ -1,5 +1,14 @@
 --What is the shortest order time and what was the pizza name?--
-SELECT DISTINCT MIN(order_time), MIN(pizza_name) FROM `first-project-411218.411.Pizza` 
+SELECT DISTINCT MIN(order_time), MIN(pizza_name) FROM `pizza_sales_clean` 
 
 --One of the customers wants a refund and says the order was made in 2015 during November and December. Please pull up all ids in that time.--
-SELECT order_date, order_id FROM `first-project-411218.411.Pizza` WHERE order_date BETWEEN '11/1/2015' AND '12/31/2015'
+SELECT order_date, order_id FROM `pizza_sales_clean` WHERE order_date BETWEEN '11/1/2015' AND '12/31/2015'
+
+--We need to find the pizza that has the least unit price on the list.--
+SELECT * FROM pizza_sales_clean WHERE unit_price = "9.75"
+
+--What was the most expensive order?--
+SELECT *  FROM pizza_sales_clean WHERE total_price = "62.25"
+
+--We need to add a new column for Reviews called ratings.--
+ALTER TABLE pizza_sales_clean ADD ratings INT

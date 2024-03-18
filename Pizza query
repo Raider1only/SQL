@@ -16,4 +16,9 @@ ALTER TABLE pizza_sales_clean ADD ratings INT
 --Bring up the unit sales, total sales and pizza associated with each.--
 SELECT DISTINCT unit_price, total_price, pizza_name FROM pizza_sales_cleaned
 
+--What is the most common pizza size ordered?
+SELECT DISTINCT MAX(pizza_size) FROM pizza_sales_cleaned
+
+--What pizza gets ordered the most in quantity?--
+SELECT DISTINCT pizza_ingredients, quantity, pizza_name FROM pizza_sales_cleaned ORDER BY quantity DESC 
 

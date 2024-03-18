@@ -12,3 +12,8 @@ SELECT *  FROM pizza_sales_clean WHERE total_price = "62.25"
 
 --We need to add a new column for Reviews called ratings.--
 ALTER TABLE pizza_sales_clean ADD ratings INT
+
+--Bring up the unit sales, total sales and pizza associated with each.--
+SELECT DISTINCT unit_price, total_price, pizza_name FROM pizza_sales_cleaned
+
+

@@ -1,14 +1,20 @@
 --Cars Dataset I downloaded from Kaggle to Excel. After cleaning the data I moved it to MySQL and answered questions with it.--
 
 --What brand of cars can hold the most passengers?--
-SELECT Name FROM used_cars_data WHERE Seats = "10"
+SELECT Name 
+FROM used_cars_data 
+WHERE Seats = "10"
 
 --What is the average lifespan of different car brands and models before they are resold or traded in?--
-SELECT AVG(Year), AVG(Kilometers_Driven) FROM used_cars_data 
+SELECT AVG(Year), AVG(Kilometers_Driven) 
+FROM used_cars_data 
 
 --How many cars used Diesel in 2014?--
-SELECT COUNT(Fuel_Type) FROM used_cars_data WHERE Fuel_Type = "Diesel" AND Year = "2014"
+SELECT COUNT(Fuel_Type) 
+FROM used_cars_data 
+WHERE Fuel_Type = "Diesel" AND Year = "2014"
 
 --Is there a correlation between the horsepower of a car and its mileage time?--
-SELECT Mileage, Power FROM used_cars_data
+SELECT Mileage, Power 
+FROM used_cars_data
 

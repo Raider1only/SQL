@@ -1,11 +1,18 @@
 --Hi this data was ethically mined using an API and includes various details about each game such as the URL, ID, publisher name, release date, name, age restriction status, active CTA ID, and more.--
 
 --Find all URl's that bought from 505 games.
-(Select URL From PS5 Where publisherName = "505 Games)
+(SELECT URL 
+FROM PS5 
+WHERE publisherName = "505 Games
+)
 
 --Find all data within the table.
-(Select * From PS5)
+(SELECT * 
+FROM PS5
+)
 
 --Find all the specific publishers in the table.
-(Select Distinct publisherName From PS5)
+(SELECT DISTINCT publisherName
+FROM PS5
+)
 

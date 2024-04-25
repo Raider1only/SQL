@@ -33,3 +33,9 @@ SELECT DISTINCT pizza_ingredients, quantity, pizza_name
 FROM pizza_sales_cleaned 
 ORDER BY quantity DESC 
 
+--What is the average delivery time of orders?--
+SELECT AVG(order_time) AS delivery_time FROM pizza_sales_cleaned
+
+--What is the total number of pizzas sold?--
+SELECT SUM(quantity) AS max_pizza_sold FROM pizza_sales_cleaned 
+

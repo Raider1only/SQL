@@ -1,0 +1,13 @@
+-- I recently wanted to ask my neighborhood their favorite snacks for a summer sale this year and I wanted to use SQL to collect my data.--
+
+CREATE DATABASE neighborhood
+
+USE neighborhood;
+CREATE TABLE neighbors(
+home CHAR,
+water_ice CHAR,
+drink CHAR,
+budget FLOAT,
+residents INT,
+PRIMARY KEY (home))
+

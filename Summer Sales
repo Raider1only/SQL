@@ -4,10 +4,42 @@ CREATE DATABASE neighborhood
 
 USE neighborhood;
 CREATE TABLE neighbors(
-home CHAR,
-water_ice CHAR,
-drink CHAR,
+home VARCHAR,
+water_ice VARCHAR,
+drink VARCHAR,
 budget FLOAT,
 residents INT,
 PRIMARY KEY (home))
 
+INSERT INTO neighbors (home, water_ice, drink, budget, residents)
+VALUES
+('Summers', 'Rainbow', 'Pepsi', 7.25, 3),
+('Smiths', 'Cherry', 'Sprite', 11.50, 4),
+('Jones', 'Rainnow', 'Orange', 9.00, 2),
+('Lott', 'Mango', 'Mountain Dew', 15.00, 3),
+('Kents', 'Lemon', 'Water', 6.50, 2),
+('Geyette', 'Lemon', 'Pepsi', 10.00, 4),
+('Gonzalez', 'Cherry', 'Sprite', 12.00, 5),
+('Ryder', 'Lemon', '7 Up', 5.00, 1);
+
+--Here are some questions and requests from the data.--
+
+--Pull up the data.--
+SELECT * FROM neighbors
+
+--How many neighbors want Lemon?--
+SELECT * FROM neighbors WHERE water_ice = 'Lemon'
+
+--What is the max pay for the most snacks?--
+SELECT MAX(budget) as highest_sale FROM neighbors 
+
+--What is the average sales per neighbor?--
+SELECT AVG(budget) AS average_sales FROM neighbors 
+
+--More neighbors want to join the sales but we need to reduce the names for space. Please do so.--
+Alter table neighbors
+MODIFY COLUMN drink varchar(3);
+
+--There is no more need for a residents column. Please remove it.--
+Alter table neighbors
+DROP COLUMN residents;

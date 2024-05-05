@@ -1,4 +1,4 @@
--- I recently wanted to ask my neighborhood their favorite snacks for a summer sale this year and I wanted to use SQL to collect my data.--
+-- I recently wanted to ask my neighborhood their favorite snacks for a summer sale this year and I wanted to use SQL to collect my data in dataset of my own creation.--
 
 CREATE DATABASE neighborhood
 

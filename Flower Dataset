@@ -1,0 +1,29 @@
+--Flowerset Data I downloaded from Kaggle for analysis on MYSQL. Original Source here: https://www.kaggle.com/datasets/abhayayare/flower-dataset--
+
+--Bring up all the data within the table.--
+select * 
+from flower_dataset
+
+--Align the flowers by height.--
+select * 
+from flower_dataset 
+order by height_cm desc
+
+--What are the flowers that are available?--
+select * 
+from flower_dataset 
+order by height_cm desc
+
+--We want to add a new flower, rose, to the dataset. Please do so.--
+insert into flower_dataset (species, size, fragrance, height_cm)
+values ('violet','medium', 'mild', '80.00')
+
+--What is the average height of the flowers?--
+select avg(height_cm) as 'Average Flower Height'
+from flower_dataset 
+
+--Look up all the mild fragrances in the data by height.--
+select * 
+from flower_dataset 
+where fragrance = 'mild' 
+order by height_cm

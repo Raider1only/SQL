@@ -26,4 +26,9 @@ from flower_dataset
 select * 
 from flower_dataset 
 where fragrance = 'mild' 
+
+--Find the average height of each species in inches.--
+SELECT species, AVG(height_cm / 2.54) as avg_flower_size 
+FROM flower_dataset
+GROUP BY species; 
 order by height_cm

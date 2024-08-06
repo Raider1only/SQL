@@ -19,7 +19,8 @@ insert into flower_dataset (species, size, fragrance, height_cm)
 values ('violet','medium', 'mild', '80.00')
 
 --What is the average height of the flowers?--
-select avg(height_cm) as 'Average Flower Height'
+select avg(height_cm) 
+as 'Average Flower Height'
 from flower_dataset 
 
 --Look up all the mild fragrances in the data by height.--
@@ -28,7 +29,20 @@ from flower_dataset
 where fragrance = 'mild' 
 
 --Find the average height of each species in inches.--
-SELECT species, AVG(height_cm / 2.54) as avg_flower_size 
+SELECT species, 
+AVG(height_cm / 2.54) 
+as avg_flower_size 
 FROM flower_dataset
 GROUP BY species; 
 order by height_cm
+
+--Find all the roses that are small with a height loer than 60 centimeters.--
+select species, 
+size, 
+fragrance, 
+height_cm 
+as small_roses
+from plants.flower_dataset
+where species = 'rose'
+and size = 'small'
+and height_cm < 60

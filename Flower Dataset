@@ -36,7 +36,7 @@ FROM flower_dataset
 GROUP BY species; 
 order by height_cm
 
---Find all the roses that are small with a height loer than 60 centimeters.--
+--Find all the roses that are small with a height lower than 60 centimeters.--
 select species, 
 size, 
 fragrance, 

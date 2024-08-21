@@ -14,6 +14,20 @@ select *
 from plants.flower_dataset 
 order by height_cm desc
 
+--Convert the data into a second table with height in inches.--
+select fl1.height_cm as fl1_height_cm,
+fl1.fragrance as frag,
+fl1.size as siz,
+fl1.species as spec,
+fl2.height_cm * 0.39370079 as fl2_height_inch,
+fl2.fragrance as frag,
+fl2.size as siz,
+fl2.species as spec
+From plants.flower_dataset fl1
+join plants.flower_dataset fl2
+on fl1.height_cm = fl2.height_cm 
+order by fl1.height_cm desc
+
 --We want to add a new flower, rose, to the dataset. Please do so.--
 insert into plants.flower_dataset (species, size, fragrance, height_cm)
 values ('violet','medium', 'mild', '80.00')
@@ -46,10 +60,3 @@ from plants.flower_dataset
 where species = 'rose'
 and size = 'small'
 and height_cm < 60
-
---Combine the data from the first dataset gathered to the most recent.--
-select *
-from flower_dataset as recent
-join pedal_dataset as 1st
-on recent.species = 1st.species
-

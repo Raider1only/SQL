@@ -14,6 +14,17 @@ select *
 from plants.flower_dataset 
 order by height_cm desc
 
+--Label the roses that are medium size as relevant, the large roses as irrelevant, the small roses as potential, and any other flower as not applicable.--
+select size, species,
+case
+  when size = 'medium' and species = 'rose' then 'relevant_rose'
+  when size = 'small' and species = 'rose' then 'potential_rose'
+  when size = 'large' and species = 'rose' then 'irrelevant_rose'
+  else 'not_applicable'
+end 
+as med_rose
+from plants.flower_dataset
+
 --Convert the data into a second table with height in inches.--
 select fl1.height_cm as fl1_height_cm,
 fl1.fragrance as frag,

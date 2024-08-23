@@ -2,6 +2,14 @@
 SELECT DISTINCT MIN(order_time), MIN(pizza_name) 
 FROM `pizza_sales_clean` 
 
+--Bring up the order time and date of all the orders before May 15th 2015 and after 6:23 PM
+select order_time, order_date,
+case
+	when order_time >= "18:23:33" and order_date <= "15-05-2015" then 'eligible'
+    else 'not eligible'
+end as order_date
+from pizza.pizza_sales_cleaned
+
 --Join the pizza name, ingredients, and size data from the right table.--
 select set1.pizza_name as set1_pizza_name,
 set1.pizza_ingredients as set1_pizza_ingredients,

@@ -2,6 +2,17 @@
 SELECT DISTINCT MIN(order_time), MIN(pizza_name) 
 FROM `pizza_sales_clean` 
 
+--Join the pizza name, ingredients, and size data from the right table.--
+select set1.pizza_name as set1_pizza_name,
+set1.pizza_ingredients as set1_pizza_ingredients,
+set1.pizza_size as set1_pizza_size,
+set2.pizza_name as set2_pizza_name,
+set2.pizza_ingredients as set2_pizza_ingredients,
+set2.pizza_size as set2_pizza_size
+from pizza.pizza_sales_cleaned set1
+right join pizza.pizza_sales_cleaned set2
+on set1.pizza_name = set2.pizza_name
+
 --One of the customers wants a refund and says the order was made in 2015 during November and December. Please pull up all ids in that time.--
 SELECT order_date, order_id 
 FROM `pizza_sales_clean` 
@@ -39,3 +50,7 @@ SELECT AVG(order_time) AS delivery_time FROM pizza_sales_cleaned
 --What is the total number of pizzas sold?--
 SELECT SUM(quantity) AS max_pizza_sold FROM pizza_sales_cleaned 
 
+--Update the medium pizzas with a 20% total price increase.--
+update pizza.pizza_sales_cleaned as increased 
+set total_price = ((total_price * .2) * 100)
+Where pizza_size = "M"   

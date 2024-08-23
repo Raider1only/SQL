@@ -5,7 +5,7 @@ SELECT Name
 FROM used_cars_data 
 WHERE Seats = "10"
 
---Bring up the Price, New Price, and Mileage and increase the Price by 25%.--
+--Bring up the Price, New Price, and Mileage and increase the Price by 25% on the left table.--
 select tab1.New_Price as New_Price,
 tab1.Price as Price,
 tab1.Mileage as Mileage,

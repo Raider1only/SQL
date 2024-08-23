@@ -2,6 +2,11 @@
 SELECT DISTINCT MIN(order_time), MIN(pizza_name) 
 FROM `pizza_sales_clean` 
 
+--Find all pizza names and ingredients with mushrooms in them.--
+select pizza_ingredients, pizza_name
+from pizza.pizza_sales_cleaned
+where pizza_ingredients like '%Mushrooms%'
+
 --Bring up the order time and date of all the orders before May 15th 2015 and after 6:23 PM
 select order_time, order_date,
 case

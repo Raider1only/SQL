@@ -10,6 +10,15 @@ case
 end as order_date
 from pizza.pizza_sales_cleaned
 
+--Make a list of all the italian pizza ids and label them recalls and issue all the Barbecue Chicken Pizzas as refunds.--
+select pizza_name_id, pizza_name, 
+case
+when pizza_name_id = 'ital_supr_l' or 'ital_supr_m' or 'ital_supr_s' then 'recall'
+when pizza_name = 'The Barbecue Chicken Pizza' then 'refund'
+else 'not_applicable'
+end as product_change
+from pizza.pizza_sales_cleaned
+
 --Join the pizza name, ingredients, and size data from the right table.--
 select set1.pizza_name as set1_pizza_name,
 set1.pizza_ingredients as set1_pizza_ingredients,

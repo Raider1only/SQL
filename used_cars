@@ -5,6 +5,17 @@ SELECT Name
 FROM used_cars_data 
 WHERE Seats = "10"
 
+--Bring up the Price, New Price, and Mileage and increase the Price by 25%.--
+select tab1.New_Price as New_Price,
+tab1.Price as Price,
+tab1.Mileage as Mileage,
+tab2.New_Price as New_Price_2,
+(tab2.Price *.25)*100 as Price_2,
+tab2.Mileage as Mileage_2
+from cars.used_cars_data tab1
+left join cars.used_cars_data tab2
+on tab1.Price = tab2.Price
+
 --What is the average lifespan of different car brands and models before they are resold or traded in?--
 SELECT AVG(Year), AVG(Kilometers_Driven) 
 FROM used_cars_data 

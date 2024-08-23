@@ -74,5 +74,5 @@ SELECT SUM(quantity) AS max_pizza_sold FROM pizza_sales_cleaned
 
 --Update the medium pizzas with a 20% total price increase.--
 update pizza.pizza_sales_cleaned as increased 
-set total_price = ((total_price * .2) * 100)
+set total_price = ((total_price * .2) + total_price)
 Where pizza_size = "M"   

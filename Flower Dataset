@@ -75,6 +75,7 @@ from plants.flower_dataset
 select * 
 from plants.flower_dataset 
 where fragrance = 'mild' 
+order by height_cm
 
 --Find the average height of each species in inches.--
 SELECT species, 

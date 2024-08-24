@@ -40,6 +40,21 @@ SELECT AVG(budget) AS average_sales FROM neighbors
 Alter table neighbors
 MODIFY COLUMN drink varchar(3);
 
+--We want to give back $5 back to each customer. Make a new set showing the difference in sales.--
+select part1.home as home1,
+part1.water_ice as waterice1,
+part1.drink as drink1,
+part1.budget as budget1,
+part1.residents as resident1,
+part2.home as home2,
+part2.water_ice as waterice2,
+part2.drink as drink2,
+part2.budget - 5 as budget2,
+part2.residents as resident2
+from neighborhood.neighbors part1
+join neighborhood.neighbors part2
+on part1.home = part2.home
+
 --There is no more need for a residents column. Please remove it.--
 Alter table neighbors
 DROP COLUMN residents;

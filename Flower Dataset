@@ -8,6 +8,11 @@ from plants.flower_dataset
 alter table plants.flower_dataset
 add price varchar(25)
 
+--In the new price column update the rose prices by making each rose the price of half the height.--
+update plants.flower_dataset
+set price = height_cm * .5
+where species = 'rose'
+
 --Align the flowers by height.--
 select * 
 from plants.flower_dataset 

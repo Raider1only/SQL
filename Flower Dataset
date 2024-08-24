@@ -25,6 +25,20 @@ end
 as med_rose
 from plants.flower_dataset
 
+--Bring up all the common data in the table and identify all the fragrances with none as 'proper fragrance'.--
+select place1.fragrance as frag1,
+place1.height_cm as height1,
+place1.size as size1,
+place1.species as spec1,
+place2.fragrance as proper_frag,
+place2.height_cm as height2,
+place2.size as size2,
+place2.species as spec2
+from plants.flower_dataset place1
+inner join plants.flower_dataset place2
+on place1.fragrance = place2.fragrance
+where place1.fragrance = 'none'
+
 --Convert the data into a second table with height in inches.--
 select fl1.height_cm as fl1_height_cm,
 fl1.fragrance as frag,

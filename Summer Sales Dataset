@@ -40,6 +40,15 @@ SELECT AVG(budget) AS average_sales FROM neighbors
 Alter table neighbors
 MODIFY COLUMN drink varchar(3);
 
+--Identify the families that ordered Cherry and Lemon flavors.--
+select *,
+case
+when water_ice = 'Lemon' then 'Lemon_family'
+when water_ice = 'Cherry' then 'Cherry_family'
+else 'Other_Flavor'
+end as 'Flavor orders'
+from neighborhood.neighbors
+
 --We want to give back $5 back to each customer. Make a new set showing the difference in sales.--
 select part1.home as home1,
 part1.water_ice as waterice1,

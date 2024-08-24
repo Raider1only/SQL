@@ -4,6 +4,10 @@
 select * 
 from plants.flower_dataset
 
+--Add a new column called 'price' to the data.--
+alter table plants.flower_dataset
+add price varchar(25)
+
 --Align the flowers by height.--
 select * 
 from plants.flower_dataset 

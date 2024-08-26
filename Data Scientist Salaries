@@ -1,0 +1,60 @@
+--Hello, in my search for a data related role I wanted to see some data related to that search. This is a dataset for the global salaries of Data Science. In this project I will analyze the data in MYSQL.--
+--Here is the link to the dataset used. https://www.kaggle.com/datasets/lainguyn123/data-science-salary-landscape.--
+
+--Pull up all the data.--
+select *
+from hobby.salaries
+
+--Find the average, max, and minimum salary of the entire data.--
+select avg(salary) as Avg_Salary,
+max(salary) as Max_Salary,
+min(salary) as Min_Salary
+from hobby.salaries
+
+--Find experience level jobs that pay 40,000 or more in USD and the company is located in the US. Label them apply.
+select *,
+case
+when experience_level = 'EN' and salary >= '40000' and salary_currency = 'USD' and company_location = 'US' then 'apply'
+else 'not applicable'
+end as 'Entry to apply'
+from hobby.salaries
+
+--Combine the work year, job title, employee residence, company location, and remote ratio data from the left table and show where the remote ration is less than 50 and salary is greater to or equal to 50000.--
+select spot1.work_year as wk1,
+spot1.job_title as jt1,
+spot1.remote_ratio as rr1,
+spot1.company_location as cl1,
+spot1.employee_residence as er1,
+spot2.work_year as wk2,
+spot2.job_title as jt2,
+spot2.remote_ratio as rr2,
+spot2.company_location as cl2,
+spot1.employee_residence as er
+from hobby.salaries spot1
+left join hobby.salaries spot2
+on spot1.company_location = spot2.company_location
+where spot1.remote_ratio <= '50' and spot1.salary >= '50000'
+
+--List all the jobs that reference a Data Analyst.--
+select distinct job_title
+from hobby.salaries
+where job_title like '%Data Analyst%'
+
+-- Join the tables and run a formula to see what the salary is in five years for Data Analysts.--
+select cal1.work_year as work_year_1st,
+cal1.job_title as job_title_1st,
+cal1.salary as salary_1st,
+cal1.salary_in_usd as salary_in_usd_1st,
+cal2.work_year + 5 as work_year_after_5,
+cal2.job_title as job_title_after_5,
+cal2.salary * 5 as salary_after_5,
+cal2.salary_in_usd * 5 as salary_in_usd_after_5
+from hobby.salaries cal1
+join hobby.salaries cal2
+on cal1.work_year = cal2.work_year
+where cal1.job_title like '%Data Analyst%' and cal2.job_title like '%Data Analyst%'
+
+--Update all the Data Analyst jobs in 2020 with Junior Data Analyst.--
+update hobby.salaries
+set job_title = 'Junior Data Analyst'
+where work_year = '2020' and job_title = 'Data Analyst'

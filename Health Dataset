@@ -1,0 +1,37 @@
+--This dataset contains detailed information about medical costs for individuals over the period from 2010 to 2020.
+It includes various attributes such as age, sex, BMI, number of children, smoking status, and region.
+These attributes are essential in understanding the factors that influence medical costs and can be used for predictive modeling, statistical analysis, and research purposes.
+Original source here: https://www.kaggle.com/datasets/waqi786/medical-costs --
+
+-- Add a new schema to the database for the data.--
+create schema medical
+
+--Bring up all the data--
+select * 
+from medical.medical_costs
+
+--We have a new policy for people who are 40 and over who smoke. Identify who is liable and who isn't--
+select *,
+case
+when age <= 40 And Smoker = 'yes' then 'liable'
+else 'not liable'
+end as new_policy
+from medical.medical_costs
+
+--What are the average number of kids within the southeast region?--
+select avg(Children) as Average_Children
+from medical.medical_costs
+where Region = 'southeast'
+
+--What is the highest sex in the data and max price?--
+select max(Sex) as highest_sex, max(Medical Cost) as max_cost
+from medical.medical_costs
+
+--Represent the change in BMI + 5 and increase of Age by 20 years.--
+select tab1.Age as First_Age,
+tab1.BMI as First_BMI,
+tab2.Age + 20 as Second_Age,
+tab2.BMI + 5 as Second_BMI
+from medical.medical_costs tab1
+join medical.medical_costs tab2
+on tab1.Age = tab2.Age
